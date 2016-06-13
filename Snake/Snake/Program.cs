@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Snake
@@ -28,6 +29,18 @@ namespace Snake
             //создание змейки
             Snake snake = new Snake(p, 8, Direction.RIGHT);
             snake.Drow();
+            snake.Move();
+            Thread.Sleep(400);
+            snake.Move();
+            Thread.Sleep(400);
+            snake.Move();
+            Thread.Sleep(400);
+            snake.Move();
+            Thread.Sleep(400);
+            snake.Move();
+            Thread.Sleep(400);
+            snake.Move();
+            Thread.Sleep(400);
 
 
             Console.ReadLine();
