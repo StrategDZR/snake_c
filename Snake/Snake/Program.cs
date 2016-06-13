@@ -14,14 +14,8 @@ namespace Snake
             Console.SetBufferSize(80, 25);
 
             //рамка поля
-            HorizontalLine upLine = new HorizontalLine(0, 78, 0, '*');
-            HorizontalLine downLine = new HorizontalLine(0, 78, 23, '*');
-            VerticalLine leftLine = new VerticalLine(0, 0, 23, '*');
-            VerticalLine rightLine = new VerticalLine(78, 0, 23, '*');
-            upLine.Draw();
-            downLine.Draw();
-            leftLine.Draw();
-            rightLine.Draw();
+            Walls walls = new Walls(80, 25);
+            walls.Draw();
 
             //точка на поле
             Point p = new Point(23, 12, '*');
@@ -36,6 +30,11 @@ namespace Snake
 
             while (true)
             {
+                if(walls.IsHit(snake) || snake.IsHitTail())
+                {
+                    break;
+                }
+
                 if (snake.Eat(food))
                 {
                     food = foodCreator.CreateFood();
@@ -46,7 +45,7 @@ namespace Snake
                     snake.Move();
                 }
 
-                Thread.Sleep(300);
+                Thread.Sleep(100);
 
                 if (Console.KeyAvailable)
                 {
