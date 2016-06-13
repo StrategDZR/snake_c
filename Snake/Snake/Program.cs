@@ -12,6 +12,7 @@ namespace Snake
         {
             Console.SetBufferSize(80, 25);
 
+            //рамка поля
             HorizontalLine upLine = new HorizontalLine(0, 78, 0, '*');
             HorizontalLine downLine = new HorizontalLine(0, 78, 23, '*');
             VerticalLine leftLine = new VerticalLine(0, 0, 23, '*');
@@ -20,6 +21,14 @@ namespace Snake
             downLine.Drow();
             leftLine.Drow();
             rightLine.Drow();
+
+            //точка на поле
+            Point p = new Point(23, 12, '=');
+
+            //создание змейки
+            Snake snake = new Snake(p, 8, Direction.RIGHT);
+            snake.Drow();
+
 
             Console.ReadLine();
         }
