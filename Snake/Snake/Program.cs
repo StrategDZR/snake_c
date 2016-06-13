@@ -24,23 +24,23 @@ namespace Snake
             rightLine.Drow();
 
             //точка на поле
-            Point p = new Point(23, 12, '=');
+            Point p = new Point(23, 12, '*');
 
             //создание змейки
             Snake snake = new Snake(p, 8, Direction.RIGHT);
             snake.Drow();
-            snake.Move();
-            Thread.Sleep(400);
-            snake.Move();
-            Thread.Sleep(400);
-            snake.Move();
-            Thread.Sleep(400);
-            snake.Move();
-            Thread.Sleep(400);
-            snake.Move();
-            Thread.Sleep(400);
-            snake.Move();
-            Thread.Sleep(400);
+
+            while (true)
+            {
+                if (Console.KeyAvailable)
+                {
+                    ConsoleKeyInfo key = Console.ReadKey();
+                    snake.HandleKey(key.Key);
+                }
+                Thread.Sleep(100);
+                snake.Move();
+            }
+         
 
 
             Console.ReadLine();
