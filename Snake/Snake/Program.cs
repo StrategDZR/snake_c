@@ -18,17 +18,17 @@ namespace Snake
             HorizontalLine downLine = new HorizontalLine(0, 78, 23, '*');
             VerticalLine leftLine = new VerticalLine(0, 0, 23, '*');
             VerticalLine rightLine = new VerticalLine(78, 0, 23, '*');
-            upLine.Drow();
-            downLine.Drow();
-            leftLine.Drow();
-            rightLine.Drow();
+            upLine.Draw();
+            downLine.Draw();
+            leftLine.Draw();
+            rightLine.Draw();
 
             //точка на поле
             Point p = new Point(23, 12, '*');
 
             //создание змейки
             Snake snake = new Snake(p, 8, Direction.RIGHT);
-            snake.Drow();
+            snake.Draw();
 
             while (true)
             {
